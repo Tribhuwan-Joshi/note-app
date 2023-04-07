@@ -4,7 +4,7 @@ import "./index.css";
 import { account } from "./appwriteConfig";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import Main from "./components/Main/Main";
+import Notes from "./components/Notes/Notes";
 import { ID } from "appwrite";
 
 export const UserContext = createContext();
@@ -83,7 +83,7 @@ function App() {
           path="/notes"
           element={
             user.email ? (
-              <Main handleLogout={handleLogout} />
+              <Notes handleLogout={handleLogout} />
             ) : (
               <Navigate to="/signup" replace="true" />
             )

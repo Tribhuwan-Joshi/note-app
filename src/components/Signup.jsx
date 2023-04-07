@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-function Signup({ handleSignup }) {
-  const [userData, setUserData] = useState();
+function Signup({ handleSignUp }) {
   const navigate = useNavigate();
+  const [userData, setUserData] = useState();
   function handleChange(e) {
     let name = e.target.name;
     let value = e.target.value;
     setUserData((prev) => ({ ...prev, [name]: value }));
   }
+
   async function handleClick(e) {
-    e.preventDefault();
-    await handleSignup(userData);
-    navigate("/notes");
+    if (
+      emailRef.current.validity.valid &&
+      passwordRef.current.validity.valid &&
+      usernameRef.current.validity.valid
+    ) {
+      e.preventDefault();
+      await handleSignUp(userData);
+      navigate("/notes");
+    }
   }
+  const passwordRef = useRef("");
+  const emailRef = useRef("");
+  const usernameRef = useRef("");
+
   return (
     <div className="h-[100vh] flex flex-col items-center justify-center">
       <div className="container w-[70%]  min-w-[400px] max-w-[800px] h-full flex justify-center gap-10 items-center flex-col ">
@@ -22,31 +33,37 @@ function Signup({ handleSignup }) {
         </div>
         <form className="flex box-content p-16 rounded-sm border border-black  flex-col gap-4 w-[50%]">
           <input
-            onChange={handleChange}
             name="username"
+            value={userData?.username || ""}
             type="text"
             placeholder="Username"
             autoComplete="off"
+            ref={usernameRef}
             required
             className="border border-black p-1 rounded-md text-md sm:text-md"
+            onChange={handleChange}
           />
           <input
-            onChange={handleChange}
             name="email"
+            value={userData?.email || ""}
             type="email"
             placeholder="Email"
             autoComplete="off"
+            ref={emailRef}
             required
             className="border border-black p-1 rounded-md text-md sm:text-md"
+            onChange={handleChange}
           />
           <input
-            onChange={handleChange}
             name="password"
+            value={userData?.password || ""}
             type="password"
             minLength="8"
+            ref={passwordRef}
             placeholder="Password"
             autoComplete="off"
             className="border border-black p-1 rounded-md text-md sm:text-md"
+            onChange={handleChange}
             required
           />
           <button
