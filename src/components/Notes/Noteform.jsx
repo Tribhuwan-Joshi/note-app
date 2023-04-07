@@ -27,18 +27,18 @@ export default function Noteform({ handleCreate }) {
           value={note.title || ""}
           name="title"
           autoComplete="false"
-          maxLength="30"
+          maxLength="50"
           ref={titleRef}
           className="border-b-[1px] w-full block    text-base border-gray-600  outline-none"
           placeholder="Title"
         />
         <span className="text-xs  text-gray-500 relative self-center">
-          {note.title?.length || 0}/30
+          {note.title?.length || 0}/50
         </span>
       </div>
       <div className="flex sm:w-[30%] max-w-[600px] min-w-[200px]">
         <input
-          maxLength="50"
+          maxLength="70"
           autoComplete="off"
           onChange={handleChange}
           value={note.desc || ""}
@@ -47,7 +47,7 @@ export default function Noteform({ handleCreate }) {
           placeholder="Description"
         />
         <span className="text-xs text-gray-500 relative self-center">
-          {note.desc?.length || 0}/50
+          {note.desc?.length || 0}/70
         </span>
       </div>
 
