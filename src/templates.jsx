@@ -41,9 +41,9 @@ function Login(){
           <span>
             {" "}
             New Member ?{" "}
-//             <Link className="underline" to="/signup">
-//               Sign up
-//             </Link>
+            <Link className="underline" to="/signup">
+              Sign up
+            </Link>
           </span>
         </form>
       </div>
@@ -105,9 +105,9 @@ return (
           <span>
             {" "}
             Already a member ?{" "}
-//             <Link className="underline" to="/login">
-//               Login
-//             </Link>
+<Link className="underline" to="/login">
+              Login
+              </Link>
           </span>
         </form>
       </div>
