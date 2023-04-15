@@ -1,5 +1,5 @@
 # Note Me
-#### A searchable  note app powered by [appwrite](https://appwrite.io/docs) and [meilesearch](https://docs.meilisearch.com/learn/getting_started/quick_start.html#securing-meilisearch) 
+#### A searchable  note app powered by [appwrite](https://appwrite.io/docs) and [meilisearch](https://docs.meilisearch.com/learn/getting_started/quick_start.html#securing-meilisearch) 
 ![preview](https://raw.githubusercontent.com/Tribhuwan-Joshi/note-me/main/public/NoteMe.png)
 
 ## Key Features
